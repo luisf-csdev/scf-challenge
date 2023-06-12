@@ -1,15 +1,26 @@
-var data =  require("./fakeData");
+const fs = require('fs')
+const path = require('path')
 
-module.exports = function(req, res) {
-  
-    var name =  req.query.name;
+const databasePath = path.join(__dirname, 'fakeData.js')
+const userData = fs.readFileSync(databasePath, 'utf-8')
+const userDataArray = eval(userData)
 
-    for(let i = 0; i < data.length;  i++) {
-        if(i.name == name) {
-            data[i] = null;
+function deleteUser(req, res) {
+
+    const userName = req.body.name
+
+    const usersRemaining = userDataArray.filter(user => {
+        if (user.name.toLowerCase() !== userName.toLowerCase()) {
+            return user
         }
-    }
+    })
 
-    res.send("success");
+    const remainingUserData = `module.exports = ${JSON.stringify(usersRemaining, null, 2)}`
+    fs.writeFileSync(databasePath, remainingUserData, 'utf-8')
 
-};
+    userDataArray.length > usersRemaining.length ?
+        res.status(200).send('Usuário deletado com sucesso')
+        : res.status(400).send('Usuário não encontrado')
+}
+
+module.exports = deleteUser

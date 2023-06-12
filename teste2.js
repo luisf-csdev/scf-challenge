@@ -1,17 +1,33 @@
-var data =  require("./fakeData");
+const fs = require('fs')
+const path = require('path')
 
-module.exports = function(req, res){
-  
-    var name =  req.body.name;
-    var jov =  req.body.job;
-    
-    var newUser = {
-        name: name,
-        job: job,
+const { createUserValidate } = require('./validate')
+const databasePath = path.join(__dirname, 'fakeData.js')
+const userData = fs.readFileSync(databasePath, 'utf-8')
+const userDataArray = eval(userData)
+
+function createUser(req, res) {
+
+    const { error } = createUserValidate(req.body)
+    if (error) {
+        return res.status(400).send(error.message)
     }
 
-    data.push(newUser)
-    
-    res.send(newUser);
+    const userName = req.body.name
+    const userJob = req.body.job
+
+    const newUser = {
+        id: Date.now(),
+        name: userName,
+        job: userJob
+    }
+    userDataArray.push(newUser)
+
+    const updatedUserData = `module.exports = ${JSON.stringify(userDataArray, null, 2)}`
+    fs.writeFileSync(databasePath, updatedUserData, 'utf-8')
+
+    res.send(newUser)
 
 };
+
+module.exports = createUser

@@ -1,24 +1,23 @@
-var data =  require("./fakeData");
+const userData = require('./fakeData')
 
-const getUser = ( req, res, next ) => {
-    
-    var name =  req.query.name;
+function getUser(req, res) {
+    const userName = req.query.name
 
-    for(let i = 0; i < data.length;  i++) {
-        if(i.name == name) {
-            res.send(data[i]);
-        }
+    if (userName) {
+        const userFiltered = userData.filter(user => {
+            if (user.name.toLowerCase().includes(userName.toLowerCase())) {
+                return user
+            }
+        })
+        res.send(userFiltered)
     }
+    else {
+        res.send(userData)
+    }
+}
 
-};
+function getUsers(req, res) {
+    res.send(userData)
+}
 
-const getUsers = ( req, res, next ) => {
-    
-    res.send(data);
-    
-};
-
-module.exports = {
-    getUser,
-    getUsers
-};
+module.exports = { getUser, getUsers }
