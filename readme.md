@@ -36,9 +36,6 @@
 - [x] Visualizar quantas vezes determinado usuário foi lido
 <br>
 
-## 
-<br>
-
 ## 💾 Pré-requisitos
 Você precisará ter as seguintes ferramentas instaladas em sua máquina:
 - [GIT](https://git-scm.com/)
@@ -89,9 +86,9 @@ npm start
 
 - O cliente será capaz de fazer buscas no banco de dados local através de duas rotas:
 
-    - a. Em uma rota, este precisará passar uma ID para ler os dados de um usuário específico.
+    - a) Em uma rota, este precisará passar uma ID para ler os dados de um usuário específico.
 
-    - b. Já na outra rota, o cliente consultará a totalidade de usuários cadastrados, ou apenas determinados usuários que possuírem parte de ou mesmo nome.
+    - b) Já na outra rota, o cliente consultará a totalidade de usuários cadastrados, ou apenas determinados usuários que possuírem parte de ou mesmo nome.
 ### 2. Inserção
 
 - O cliente realizará inserções de novos registros de usuários no banco de dados informando o nome e a profissão destes.
@@ -115,65 +112,65 @@ npm start
 
 ## 📁 Arquivos
 ### app.ts
-```
-Arquivo principal do projeto, onde ficam as rotas e as configurações para receber formulários e JSON da requisição.
-```
-### fakeData.ts
-```
-Banco de dados local da aplicação.
-```
-### notFound.ts
-```
-Função que retorna uma mensagem de página não encontrada quando o cliente informa um URL não correspondente a nenhuma das outras rotas.
-```
-### dataBaseEntryValidate.ts
-```
-Função interligada aos testes 2, 3 e 4.
+- Arquivo principal do projeto, onde ficam as rotas e as configurações para receber formulários e JSON da requisição.
+##
 
-Seu papel é validar as entradas de usuários no banco de dados (criar, atualizar e excluir), apenas registrando-os quando fornecidos todos os dados obrigatórios e estes forem válidos.
-```
+### fakeData.ts
+- Banco de dados local da aplicação.
+##
+
+### notFound.ts
+- Função que retorna uma mensagem de página não encontrada quando o cliente informa um URL não correspondente a nenhuma das outras rotas.
+##
+
+### dataBaseEntryValidate.ts
+- Função interligada aos testes 2, 3 e 4.
+
+- Seu papel é validar as entradas de usuários no banco de dados (criar, atualizar e excluir), apenas registrando-os quando fornecidos todos os dados obrigatórios e estes forem válidos.
+##
+
 ### adminValidate.ts
-```
-Função intermediária ligada aos testes 3, 4 e 6 que valida a autorização do cliente antes de realizar determinada ação.
+- Função intermediária ligada aos testes 3, 4 e 6 que valida a autorização do cliente antes de realizar determinada ação.
 
 - Caso o cliente possua permissão, este irá prosseguir para a próxima função;
 - Do contrário, será retornada uma mensagem de não autorizado.
-```
-### teste1.ts
-```
-Este arquivo possui duas funções.
+##
 
-Ambas checam se existem algum usuário cadastrado no banco de dados antes de prosseguir
+### teste1.ts
+- Este arquivo possui duas funções.
+
+- Ambas checam se existem algum usuário cadastrado no banco de dados antes de prosseguir
 - Caso não haja, é retornada uma mensagem de nenhum cadastro.
 
-1. getUser:
-    a. Retornar o registro de um usuário específico buscado pela ID informada no formulário ou query da requisição.
-        - Caso o registro de um usuário específico seja lido, esta visualização será adicionada à base de dados (a contagem das visualizações será exibida no teste 5).
+    1. getUser:
+    
+        a) Retornar o registro de um usuário específico buscado pela ID informada no formulário ou query da requisição.
+           - Caso o registro de um usuário específico seja lido, esta visualização será adicionada à base de dados (a contagem das visualizações será exibida no teste 5).
 
-    b. Retornar todos os registros de usuários se nenhuma ID foi passada.
+        b) Retornar todos os registros de usuários se nenhuma ID foi passada.
 
-2. getUsers:
-    a. Retornar todos os registros de usuários.
+    2. getUsers:
+    
+        a) Retornar todos os registros de usuários.
 
-    b. Caso um nome de usuário seja informado no formulário ou query, retorna os usuários que contêm o nome informado. 
-        - Se não houver nenhum usuário que contêm um nome correspondente, retorna todos os registros.
-```
+        b) Caso um nome de usuário seja informado no formulário ou query, retorna os usuários que contêm o nome informado. 
+           - Se não houver nenhum usuário que contêm um nome correspondente, retorna todos os registros.
+##
+
 ### teste2.ts
-```
-Criar um novo usuário com base nos dados fornecidos pelo formulário no corpo da requisição e armazená-lo em uma base de dados.
-```
+- Criar um novo usuário com base nos dados fornecidos pelo formulário no corpo da requisição e armazená-lo em uma base de dados.
+##
+
 ### teste3.ts
-```
-Excluir um usuário com base na ID fornecida no corpo da requisição, salvando as alterações no banco de dados.
-```
+- Excluir um usuário com base na ID fornecida no corpo da requisição, salvando as alterações no banco de dados.
+##
+
 ### teste4.ts
-```
-Atualizar as informações de um usuário existente com base na ID fornecida no corpo da requisição, salvando as alterações no banco de dados.
-```
+- Atualizar as informações de um usuário existente com base na ID fornecida no corpo da requisição, salvando as alterações no banco de dados.
+##
+
 ### teste5.ts
-```
-Ler as informações de um usuário com base no ID fornecido na requisição e enviar uma resposta contendo a quantidade de visualizações desse usuário, se disponível.
-```
+- Ler as informações de um usuário com base no ID fornecido na requisição e enviar uma resposta contendo a quantidade de visualizações desse usuário, se disponível.
 <br>
 
 ## 💽 Tecnologias
@@ -202,11 +199,11 @@ Ler as informações de um usuário com base no ID fornecido na requisição e e
             src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" 
         />
     </a>
-</span><br><br><br>
+</span><br><br>
 
-<hr>
+<hr> 
 <div align="center">
-<h4>Excelsior code 💙 by Luís Felipe</h4>
+<h5>Excelsior code 💙 by Luís Felipe</h5>
  
 [🪐 See my LinkedIn 🪐](https://www.linkedin.com/in/luisf-csdev/)
 </div>
