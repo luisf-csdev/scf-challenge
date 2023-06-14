@@ -9,7 +9,7 @@ export default function readUser(req: Request, res: Response) {
     if (userId) {
         const readableUser = usersData.find(user => user.id === userId)
 
-        if (readableUser !== undefined) {
+        if (readableUser) {
             const userViews = readableUser.views || 0
             const userName = readableUser.name
 
