@@ -9,20 +9,14 @@ const NO_USERS_MESSAGE = 'Não há usuários cadastrados.'
 export function getUser(req: Request, res: Response) {
     if (usersData.some(user => user)) {
 
-        const userName = req.body.name || req.query.name
+        const userID = parseInt(req.body.id) || parseInt(req.query.id as string)
 
-        if (userName) {
+        if (userID) {
             const userFound = usersData.find(
-                user => user.name.toLowerCase() === userName.toLowerCase())
+                user => user.id === userID)
 
             if (userFound) {
                 userFound.views = (userFound.views || 0) + 1
-
-                const userViewed = usersData.find(user => user.id === userFound.id)
-
-                if (userViewed) {
-                    userViewed.views = userFound.views
-                }
 
                 const databasePath = path.join(__dirname, '../database/fakeData.ts')
                 const updatedUsersData = `export const usersData = ${JSON.stringify(usersData, null, 2)} as any[]`
@@ -43,8 +37,20 @@ export function getUser(req: Request, res: Response) {
 }
 
 export function getUsers(req: Request, res: Response) {
-    if (usersData.length > 0) {
-        res.send(usersData)
+    if (usersData.some(user => user)) {
+
+        const userName = req.body.name || req.query.name
+
+        if (!userName) {
+            res.send(usersData)
+
+        } else {
+            const userFound = usersData.filter(
+                user => user.name.toLowerCase().includes(userName.toLowerCase()))
+
+            userFound.some(data => data) ? res.send(userFound) : res.send(usersData)
+        }
+
     } else {
         res.send(NO_USERS_MESSAGE)
     }
