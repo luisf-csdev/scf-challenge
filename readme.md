@@ -4,7 +4,7 @@
 
 ## Introdução
 
-Este projeto possui um banco de dados fake em fakeData.js com apenas um registro.
+Este projeto possui um banco de dados fake em fakeData.ts com apenas um registro.
 A ideia é melhorar e o CRUD escrito nos 4 arquivos de teste abaixo.
 
 Será a validada a forma de escrita de código.
