@@ -215,5 +215,5 @@ npm start
 <div align="center">
 <h5>Excelsior code 💙 by Luís Felipe</h5>
  
-[🪐 See my LinkedIn 🪐](https://www.linkedin.com/in/luisf-csdev/)
+[🪐 Veja meu LinkedIn 🪐](https://www.linkedin.com/in/luisf-csdev/)
 </div>
