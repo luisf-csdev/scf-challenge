@@ -89,18 +89,28 @@ npm start
     - a) Em uma rota, este precisará passar uma ID para ler os dados de um usuário específico.
 
     - b) Já na outra rota, o cliente consultará a totalidade de usuários cadastrados, ou apenas determinados usuários que possuírem parte de ou mesmo nome.
+##
+
 ### 2. Inserção
 
 - O cliente realizará inserções de novos registros de usuários no banco de dados informando o nome e a profissão destes.
+##
+
 ### 3. Exclusão
 
 - O cliente fará a busca de um usuário específico passando uma ID e o exclui do banco, recebendo retorno do a respeito do sucesso desta exclusão.
+##
+
 ### 4. Atualização
 
 - O cliente atualizará os dados de determinado usuário, através de sua ID, informando os novos dados (nome e profissão) para efetuar a modificação.
+##
+
 ### 5. Contagem
 
 - Através de uma rota, o cliente conseguirá visualizar quantas vezes os dados de um usuário específico foi lido ao passar sua ID.
+##
+
 ### 6. Autorização
 
 - Este teste é relacionado aos testes 3 e 4.
